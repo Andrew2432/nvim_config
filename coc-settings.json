@@ -1,0 +1,68 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["css", "xml", "scss", "markdown", "javascript",  "typescript", "graphql", "html", "yaml",  "json", "python", "java", "php", "javascriptreact", "typescriptreact"],
+
+  // Python config
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+
+  // JS, TS config
+  "eslint.autoFixOnSave": true,
+  "prettier.printWidth": 80,
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.arrowParens": "always",
+  "prettier.disableLanguages": [
+    "vue",
+    "php"
+  ],
+
+  // PHP Config
+  "diagnostic-languageserver.filetypes": {
+    "php": ["phpcs"]
+  },
+  "diagnostic-languageserver.linters": {
+    "phpcs": {
+      "command": "./vendor/bin/phpcs",
+      "debounce": 300,
+      "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
+      "args": ["--report=emacs", "-s", "-"],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "phpcs",
+      "formatLines": 1,
+      "formatPattern": [
+        "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 4,
+          "security": 3
+        }
+      ],
+      "securities": {
+        "error": "error",
+        "warning": "warning"
+      }
+    }
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "php": "phpcbf"
+  },
+  "diagnostic-languageserver.formatters": {
+    "phpcbf": {
+      "command": "./vendor/bin/phpcbf",
+      "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
+      "args": ["%file"],
+      "isStdout": false,
+      "doesWriteToFile": true
+    }
+  },
+
+  "snippets.ultisnips.directories":
+  [
+    "UltiSnips",
+    "~/.config/nvim/utils/snips"
+  ]
+}
